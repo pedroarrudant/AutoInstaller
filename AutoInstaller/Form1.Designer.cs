@@ -28,23 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.chkNotepadplusplus = new System.Windows.Forms.CheckBox();
             this.btnInstalar = new System.Windows.Forms.Button();
+            this.dgvSoftwares = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSoftwares)).BeginInit();
             this.SuspendLayout();
-            // 
-            // chkNotepadplusplus
-            // 
-            this.chkNotepadplusplus.AutoSize = true;
-            this.chkNotepadplusplus.Location = new System.Drawing.Point(12, 12);
-            this.chkNotepadplusplus.Name = "chkNotepadplusplus";
-            this.chkNotepadplusplus.Size = new System.Drawing.Size(82, 17);
-            this.chkNotepadplusplus.TabIndex = 1;
-            this.chkNotepadplusplus.Text = "Notepad ++";
-            this.chkNotepadplusplus.UseVisualStyleBackColor = true;
             // 
             // btnInstalar
             // 
-            this.btnInstalar.Location = new System.Drawing.Point(12, 260);
+            this.btnInstalar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnInstalar.Location = new System.Drawing.Point(310, 292);
             this.btnInstalar.Name = "btnInstalar";
             this.btnInstalar.Size = new System.Drawing.Size(158, 50);
             this.btnInstalar.TabIndex = 2;
@@ -52,24 +44,36 @@
             this.btnInstalar.UseVisualStyleBackColor = true;
             this.btnInstalar.Click += new System.EventHandler(this.btnInstalar_Click);
             // 
+            // dgvSoftwares
+            // 
+            this.dgvSoftwares.AllowUserToAddRows = false;
+            this.dgvSoftwares.AllowUserToDeleteRows = false;
+            this.dgvSoftwares.AllowUserToResizeColumns = false;
+            this.dgvSoftwares.AllowUserToResizeRows = false;
+            this.dgvSoftwares.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvSoftwares.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSoftwares.Location = new System.Drawing.Point(125, 7);
+            this.dgvSoftwares.Name = "dgvSoftwares";
+            this.dgvSoftwares.Size = new System.Drawing.Size(343, 279);
+            this.dgvSoftwares.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(257, 359);
+            this.ClientSize = new System.Drawing.Size(480, 354);
+            this.Controls.Add(this.dgvSoftwares);
             this.Controls.Add(this.btnInstalar);
-            this.Controls.Add(this.chkNotepadplusplus);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSoftwares)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.CheckBox chkNotepadplusplus;
         private System.Windows.Forms.Button btnInstalar;
+        private System.Windows.Forms.DataGridView dgvSoftwares;
     }
 }
 
