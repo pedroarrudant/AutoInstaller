@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AI.Infrastructure
 {
-    public class FileOperations
+    public class FileOperations : IFileOperations
     {
         private readonly string downloadpath = @"C:\Users\Pedro\Downloads\";
         public List<Software> SerializeApps()

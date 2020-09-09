@@ -5,18 +5,24 @@ using System.Threading.Tasks;
 
 namespace AI.Application
 {
-    public class Install
+    public class Install : IInstall
     {
-        readonly FileOperations fileOps = new FileOperations();
+        private readonly IFileOperations _infrasctructureFileOps;
+
+        public Install(IFileOperations infrasctructureFileOps)
+        {
+            _infrasctructureFileOps = infrasctructureFileOps;
+
+        }
         public async Task InstallSoftwareAsync(string fileName)
         {
-            var AvailableSoftwares = fileOps.SerializeApps();
+            var AvailableSoftwares = _infrasctructureFileOps.SerializeApps();
 
             foreach (Software software in AvailableSoftwares)
             {
                 if (fileName == software.nome)
                 {
-                    await fileOps.RunProcessAsync(software.nomearquivo, software.formasileciosa);
+                    await _infrasctructureFileOps.RunProcessAsync(software.nomearquivo, software.formasileciosa);
                 }
             }
         }

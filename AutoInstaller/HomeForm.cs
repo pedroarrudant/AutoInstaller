@@ -1,23 +1,25 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Net;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 using AI.Application;
+using AI.Infrastructure;
 
 namespace AutoInstaller
 {
     public partial class HomeForm : Form
     {
-        readonly Download appDownload = new Download();
-        readonly Install appInstall = new Install();
+        private readonly IFileDownload _fileDownload;
+        private readonly IFileOperations _fileOperations;
+        private Download _appDownload;
+        private Install _appInstall;
 
-        public HomeForm()
+        public HomeForm(IFileDownload FileDownload, IFileOperations FileOperations)
         {
             InitializeComponent();
+            _fileOperations = FileOperations;
+            _fileDownload = FileDownload;
+            _appDownload = new Download(_fileDownload, _fileOperations);
+            _appInstall = new Install(_fileOperations);
+
             PopulateDataGridView();
         }
 
@@ -35,7 +37,7 @@ namespace AutoInstaller
 
             var columnName = new DataGridViewColumn
             {
-                HeaderText = "Software Name",
+                HeaderText = "Software",
                 Name = "columnName",
                 CellTemplate = cell
             };
@@ -43,7 +45,7 @@ namespace AutoInstaller
             dgvSoftwares.Columns.Add(chk);
             dgvSoftwares.Columns.Add(columnName);
 
-            var softwares = appDownload.ListAvailableSoftwares();
+            var softwares = _appDownload.ListAvailableSoftwares();
 
             foreach (string software in softwares)
             {
@@ -79,11 +81,11 @@ namespace AutoInstaller
             {
                 if (row.Cells[0].Value.ToString() == "True")
                 {
-                    await appDownload.DownloadFileAsync(row.Cells[1].Value.ToString());
+                    await _appDownload.DownloadFileAsync(row.Cells[1].Value.ToString());
 
                     lblStatus.Text = "Instalando " + row.Cells[1].Value.ToString() + "...";
 
-                    await appInstall.InstallSoftwareAsync(row.Cells[1].Value.ToString());
+                    await _appInstall.InstallSoftwareAsync(row.Cells[1].Value.ToString());
 
                     lblStatus.Text = row.Cells[1].Value.ToString() + " instalado com sucesso!";
                 }

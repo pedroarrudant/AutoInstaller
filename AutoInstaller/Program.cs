@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AI.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,9 +15,11 @@ namespace AutoInstaller
         [STAThread]
         static void Main()
         {
+            FileOperations FO = new FileOperations();
+            FileDownload FD = new FileDownload();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new HomeForm());
+            Application.Run(new HomeForm(FD, FO));
         }
     }
 }

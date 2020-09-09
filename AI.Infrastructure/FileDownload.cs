@@ -5,17 +5,17 @@ using AI.Domain;
 
 namespace AI.Infrastructure
 {
-    public class FileDownload
+    public class FileDownload : IFileDownload
     {
         public async Task DownloadFileToMachineAsync(Software software, string DownloadPath)
         {
-                        Uri remoteUri = new Uri(software.caminhoweb);
-                        string fileName = software.nomearquivo;
+            Uri remoteUri = new Uri(software.caminhoweb);
+            string fileName = software.nomearquivo;
 
-                        using (WebClient myWebClient = new WebClient())
-                        {
-                            await myWebClient.DownloadFileTaskAsync(remoteUri, DownloadPath + fileName);
-                        }
+            using (WebClient myWebClient = new WebClient())
+            {
+                await myWebClient.DownloadFileTaskAsync(remoteUri, DownloadPath + fileName);
+            }
         }
     }
 }

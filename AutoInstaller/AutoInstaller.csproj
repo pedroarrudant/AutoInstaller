@@ -57,9 +57,6 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -127,6 +124,10 @@
     <ProjectReference Include="..\AI.Application\AI.Application.csproj">
       <Project>{4ab3941a-f5a1-4eed-b0a5-c9281e5e6176}</Project>
       <Name>AI.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AI.Infrastructure\AI.Infrastructure.csproj">
+      <Project>{58e81d39-92d2-4b0b-aa5c-5fb8297ccf30}</Project>
+      <Name>AI.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
