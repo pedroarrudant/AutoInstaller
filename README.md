@@ -24,7 +24,7 @@ Todas as depencias se encontram no arquivo de projetos, sendo somente necessario
 
 ## Meta
 
-Seu Nome – [@pedroarrudant](https://twitter.com/pedroarrudant) – pedro.arruda@outlook.com.br
+Pedro Arruda – [@pedroarrudant](https://twitter.com/pedroarrudant) – pedro.arruda@outlook.com.br
 
 Distribuído sob a licença GNU GPLv3. Veja [LICENSE](./LICENSE.md) para mais informações.
 
@@ -32,7 +32,7 @@ Distribuído sob a licença GNU GPLv3. Veja [LICENSE](./LICENSE.md) para mais in
 
 ## Contributing
 
-1. Faça o _fork_ do projeto (https://github.com/pedroarrudant/AutoInstaller/fork>)
+1. Faça o _fork_ do projeto (https://github.com/pedroarrudant/AutoInstaller/fork)
 2. Crie uma _branch_ para sua modificação (`git checkout -b feature/fooBar`)
 3. Faça o _commit_ (`git commit -am 'Add some fooBar'`)
 4. _Push_ (`git push origin feature/fooBar`)
