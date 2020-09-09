@@ -1,28 +1,23 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AI.Application;
 
 namespace AutoInstaller
 {
     public partial class HomeForm : Form
     {
-        private readonly string downloadpath = @"C:\Users\Pedro\Downloads\";
-        private readonly List<Software> softwares;
+        Download appDownload = new Download();
+        Install appInstall = new Install();
+
         public HomeForm()
         {
             InitializeComponent();
-
-            this.softwares = SerializeApps();
             PopulateDataGridView();
         }
 
@@ -54,9 +49,11 @@ namespace AutoInstaller
             dgvSoftwares.Columns.Add(columnName);
             dgvSoftwares.Columns.Add(columnSize);
 
-            foreach (var software in softwares)
+            var softwares = appDownload.ListAvailableSoftwares();
+
+            foreach (string software in softwares)
             {
-                object[] row = new object[] { false, software.nome, "0" + " MB" };
+                object[] row = new object[] { false, software, "0" + " MB" };
                 dgvSoftwares.Rows.Add(row);
             }
         }
@@ -66,67 +63,21 @@ namespace AutoInstaller
             progressInstallation.Maximum = dgvSoftwares.RowCount;
             foreach (DataGridViewRow row in dgvSoftwares.Rows)
             {
-                foreach (var software in softwares)
-                {
-                    if (software.nome == row.Cells[1].Value.ToString() && row.Cells[0].Value.ToString() == "True")
+                bool result = await appDownload.DownloadFileAsync(row.Cells[1].Value.ToString());
+
+                    if (row.Cells[0].Value.ToString() == "True" && result == true)
                     {
-                        lblStatus.Text = "Instalando " + software.nome + "...";
-                        Uri remoteUri = new Uri(software.caminhoweb);
-                        string fileName = software.nomearquivo;
 
-                        // Create a new WebClient instance.
-                        using (WebClient myWebClient = new WebClient())
-                        {
-                            // Download the Web resource and save it into the current filesystem folder.
-                            await myWebClient.DownloadFileTaskAsync(remoteUri, downloadpath + fileName);
-                        }
+                        lblStatus.Text = "Instalando " + row.Cells[1].Value.ToString() + "...";
 
-                        //ProcessStartInfo info = new ProcessStartInfo();
+                        await appInstall.InstallSoftwareAsync(row.Cells[1].Value.ToString());
 
-                        //info.FileName = downloadpath + fileName;
-                        //info.Arguments = software.formasileciosa;
-
-                        //using (Process exeProcess = Process.Start(info))
-                        //{
-                        //    exeProcess.WaitForExit();
-                        //}
-
-                        await RunProcessAsync(downloadpath + fileName, software.formasileciosa);
-                        lblStatus.Text = software.nome + " instalado com sucesso!";
+                        lblStatus.Text = row.Cells[1].Value.ToString() + " instalado com sucesso!";
                     }
-                }
+
                 lblStatus.Text = "Todos os softwares selecionados foram instalados com sucesso!";
                 progressInstallation.Value += 1;
             }
-        }
-
-        private List<Software> SerializeApps()
-        {
-            string filepath = "./AppList.json";
-            string text = File.ReadAllText(filepath);
-
-            var deserializedProduct = JsonConvert.DeserializeObject<List<Software>>(text);
-
-            return deserializedProduct;
-        }
-
-        public static async Task RunProcessAsync(string fileName, string arguments)
-        {
-            var tcs = new TaskCompletionSource<int>();
-
-            var process = new Process
-            {
-                StartInfo = { FileName = fileName, Arguments = arguments },
-                EnableRaisingEvents = true
-            };
-
-            process.Exited += (sender, args) =>
-            {
-                tcs.SetResult(process.ExitCode);
-                process.Dispose();
-            };
-
-            process.Start();
         }
     }
 }
