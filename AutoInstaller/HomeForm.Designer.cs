@@ -54,6 +54,7 @@
             this.dgvSoftwares.AllowUserToResizeRows = false;
             this.dgvSoftwares.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvSoftwares.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSoftwares.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvSoftwares.Location = new System.Drawing.Point(125, 7);
             this.dgvSoftwares.Name = "dgvSoftwares";
             this.dgvSoftwares.Size = new System.Drawing.Size(343, 279);

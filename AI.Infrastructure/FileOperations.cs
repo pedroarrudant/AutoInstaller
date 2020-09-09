@@ -9,6 +9,7 @@ namespace AI.Infrastructure
 {
     public class FileOperations
     {
+        private readonly string downloadpath = @"C:\Users\Pedro\Downloads\";
         public List<Software> SerializeApps()
         {
             string filepath = "./AppList.json";
@@ -21,7 +22,6 @@ namespace AI.Infrastructure
 
         public async Task RunProcessAsync(string fileName, string arguments)
         {
-            string downloadpath = @"C:\Users\Pedro\Downloads\";
             var tcs = new TaskCompletionSource<int>();
 
             var process = new Process

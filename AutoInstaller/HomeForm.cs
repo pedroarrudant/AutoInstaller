@@ -12,8 +12,8 @@ namespace AutoInstaller
 {
     public partial class HomeForm : Form
     {
-        Download appDownload = new Download();
-        Install appInstall = new Install();
+        readonly Download appDownload = new Download();
+        readonly Install appInstall = new Install();
 
         public HomeForm()
         {
@@ -31,6 +31,8 @@ namespace AutoInstaller
                 Name = "chkinstall"
             };
 
+            dgvSoftwares.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CheckSoftware_Event);
+
             var columnName = new DataGridViewColumn
             {
                 HeaderText = "Software Name",
@@ -38,23 +40,35 @@ namespace AutoInstaller
                 CellTemplate = cell
             };
 
-            var columnSize = new DataGridViewColumn
-            {
-                HeaderText = "Software Size",
-                Name = "columnSize",
-                CellTemplate = cell
-            };
-
             dgvSoftwares.Columns.Add(chk);
             dgvSoftwares.Columns.Add(columnName);
-            dgvSoftwares.Columns.Add(columnSize);
 
             var softwares = appDownload.ListAvailableSoftwares();
 
             foreach (string software in softwares)
             {
-                object[] row = new object[] { false, software, "0" + " MB" };
+                object[] row = new object[] { false, software };
                 dgvSoftwares.Rows.Add(row);
+            }
+        }
+
+        private void CheckSoftware_Event(object sender, DataGridViewCellEventArgs e) 
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+            {
+                return;
+            }
+
+            if (e.ColumnIndex == 0)
+            {
+                if (dgvSoftwares.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "False")
+                {
+                    dgvSoftwares.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = true;
+                }
+                else
+                {
+                    dgvSoftwares.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = false;
+                }
             }
         }
 
@@ -63,21 +77,19 @@ namespace AutoInstaller
             progressInstallation.Maximum = dgvSoftwares.RowCount;
             foreach (DataGridViewRow row in dgvSoftwares.Rows)
             {
-                bool result = await appDownload.DownloadFileAsync(row.Cells[1].Value.ToString());
+                if (row.Cells[0].Value.ToString() == "True")
+                {
+                    await appDownload.DownloadFileAsync(row.Cells[1].Value.ToString());
 
-                    if (row.Cells[0].Value.ToString() == "True" && result == true)
-                    {
+                    lblStatus.Text = "Instalando " + row.Cells[1].Value.ToString() + "...";
 
-                        lblStatus.Text = "Instalando " + row.Cells[1].Value.ToString() + "...";
+                    await appInstall.InstallSoftwareAsync(row.Cells[1].Value.ToString());
 
-                        await appInstall.InstallSoftwareAsync(row.Cells[1].Value.ToString());
-
-                        lblStatus.Text = row.Cells[1].Value.ToString() + " instalado com sucesso!";
-                    }
-
-                lblStatus.Text = "Todos os softwares selecionados foram instalados com sucesso!";
+                    lblStatus.Text = row.Cells[1].Value.ToString() + " instalado com sucesso!";
+                }
                 progressInstallation.Value += 1;
             }
+            lblStatus.Text = "Todos os softwares selecionados foram instalados com sucesso!";
         }
     }
 }
