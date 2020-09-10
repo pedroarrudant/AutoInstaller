@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ProgressInstallation = new System.Windows.Forms.ProgressBar();
             this.ButtonInstall = new System.Windows.Forms.Button();
             this.dgvSoftwares = new System.Windows.Forms.DataGridView();
@@ -62,7 +62,7 @@
             this.dgvSoftwares.AllowUserToDeleteRows = false;
             this.dgvSoftwares.AllowUserToResizeColumns = false;
             this.dgvSoftwares.AllowUserToResizeRows = false;
-            this.dgvSoftwares.BackgroundColor = System.Drawing.Color.Indigo;
+            this.dgvSoftwares.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(20)))), ((int)(((byte)(37)))));
             this.dgvSoftwares.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvSoftwares.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvSoftwares.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -71,19 +71,19 @@
             this.dgvSoftwares.Location = new System.Drawing.Point(15, 12);
             this.dgvSoftwares.Name = "dgvSoftwares";
             this.dgvSoftwares.RowHeadersVisible = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(0)))), ((int)(((byte)(110)))));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Indigo;
-            this.dgvSoftwares.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(20)))), ((int)(((byte)(37)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(50)))), ((int)(((byte)(67)))));
+            this.dgvSoftwares.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvSoftwares.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvSoftwares.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSoftwares.Size = new System.Drawing.Size(365, 202);
+            this.dgvSoftwares.Size = new System.Drawing.Size(365, 358);
             this.dgvSoftwares.TabIndex = 4;
             // 
             // LblStatus
             // 
             this.LblStatus.AutoSize = true;
-            this.LblStatus.ForeColor = System.Drawing.Color.White;
+            this.LblStatus.ForeColor = System.Drawing.Color.Black;
             this.LblStatus.Location = new System.Drawing.Point(15, 373);
             this.LblStatus.Name = "LblStatus";
             this.LblStatus.Size = new System.Drawing.Size(74, 13);
@@ -94,7 +94,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Indigo;
+            this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(434, 489);
             this.Controls.Add(this.LblStatus);
             this.Controls.Add(this.dgvSoftwares);

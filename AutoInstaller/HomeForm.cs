@@ -36,7 +36,9 @@ namespace AutoInstaller
         //Se precisar chamar alguma cor usando o espectro RGB
         public struct RGBColors 
         {
-            public static Color White = Color.FromArgb(255,255,255);
+            public static Color ButtonSelected = Color.FromArgb(57, 40, 57);
+            public static Color Button = Color.FromArgb(37, 20, 37);
+
         }
 
         private void ActivateButton(object SenderButton, Color Color)
@@ -46,7 +48,7 @@ namespace AutoInstaller
                 DisabelButton();
 
                 currentButton = (IconButton)SenderButton;
-                currentButton.BackColor = Color.FromArgb(37, 20, 37);
+                currentButton.BackColor = RGBColors.ButtonSelected;
                 currentButton.ForeColor = Color;
                 currentButton.TextAlign = ContentAlignment.MiddleCenter;
                 currentButton.IconColor = Color;
@@ -68,7 +70,7 @@ namespace AutoInstaller
         {
             if (currentButton != null)
             {
-                currentButton.BackColor = Color.Indigo;
+                currentButton.BackColor = RGBColors.Button;
                 currentButton.ForeColor = Color.Gainsboro;
                 currentButton.TextAlign = ContentAlignment.MiddleLeft;
                 currentButton.IconColor = Color.Gainsboro;
@@ -76,77 +78,6 @@ namespace AutoInstaller
                 currentButton.ImageAlign = ContentAlignment.MiddleLeft;
             }
         }
-
-        //private void PopulateDataGridView()
-        //{
-        //    DataGridViewCell cell = new DataGridViewTextBoxCell();
-
-        //    DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn
-        //    {
-        //        HeaderText = "Install",
-        //        Name = "chkinstall"
-        //    };
-
-        //    dgvSoftwares.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CheckSoftware_Event);
-
-        //    var columnName = new DataGridViewColumn
-        //    {
-        //        HeaderText = "Software",
-        //        Name = "columnName",
-        //        CellTemplate = cell
-        //    };
-
-        //    dgvSoftwares.Columns.Add(chk);
-        //    dgvSoftwares.Columns.Add(columnName);
-
-        //    var softwares = _appDownload.ListAvailableSoftwares();
-
-        //    foreach (string software in softwares)
-        //    {
-        //        object[] row = new object[] { false, software };
-        //        dgvSoftwares.Rows.Add(row);
-        //    }
-        //}
-
-        //private void CheckSoftware_Event(object sender, DataGridViewCellEventArgs e) 
-        //{
-        //    if (e.RowIndex < 0 || e.ColumnIndex < 0)
-        //    {
-        //        return;
-        //    }
-
-        //    if (e.ColumnIndex == 0)
-        //    {
-        //        if (dgvSoftwares.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "False")
-        //        {
-        //            dgvSoftwares.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = true;
-        //        }
-        //        else
-        //        {
-        //            dgvSoftwares.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = false;
-        //        }
-        //    }
-        //}
-
-        //private async void btnInstalar_Click(object sender, EventArgs e)
-        //{
-        //    progressInstallation.Maximum = dgvSoftwares.RowCount;
-        //    foreach (DataGridViewRow row in dgvSoftwares.Rows)
-        //    {
-        //        if (row.Cells[0].Value.ToString() == "True")
-        //        {
-        //            await _appDownload.DownloadFileAsync(row.Cells[1].Value.ToString());
-
-        //            lblStatus.Text = "Instalando " + row.Cells[1].Value.ToString() + "...";
-
-        //            await _appInstall.InstallSoftwareAsync(row.Cells[1].Value.ToString());
-
-        //            lblStatus.Text = row.Cells[1].Value.ToString() + " instalado com sucesso!";
-        //        }
-        //        progressInstallation.Value += 1;
-        //    }
-        //    lblStatus.Text = "Todos os softwares selecionados foram instalados com sucesso!";
-        //}
 
         private void BtnInstallation_Click(object sender, EventArgs e)
         {
@@ -169,10 +100,13 @@ namespace AutoInstaller
         private void Reset()
         {
             DisabelButton();
-            leftOrderButton.Visible = false;
-            TitlePanelPictureBox.IconChar = IconChar.Desktop;
-            TitlePanelPictureBox.IconColor = Color.White;
-            LblTitlePanel.Text = "Installation";
+            //leftOrderButton.Visible = false;
+            //TitlePanelPictureBox.IconChar = IconChar.Desktop;
+            //TitlePanelPictureBox.IconColor = Color.White;
+            //LblTitlePanel.Text = "Installation";
+
+            ActivateButton(BtnInstallation, Color.White);
+            OpenChildForm(new FormInstallation(_fileDownload, _fileOperations));
         }
 
         private void OpenChildForm(Form ChildForm) 

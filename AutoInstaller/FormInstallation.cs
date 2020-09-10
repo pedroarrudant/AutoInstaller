@@ -59,6 +59,8 @@ namespace AutoInstaller
                 object[] row = new object[] { false, software };
                 dgvSoftwares.Rows.Add(row);
             }
+
+            ButtonInstall.Enabled = false;
         }
 
         private void CheckSoftware_Event(object sender, DataGridViewCellEventArgs e)
@@ -79,6 +81,8 @@ namespace AutoInstaller
                     dgvSoftwares.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = false;
                 }
             }
+
+            ValidateCheckedDgv(dgvSoftwares);
         }
 
         private async void btnInstalar_Click(object sender, EventArgs e)
@@ -99,6 +103,28 @@ namespace AutoInstaller
                 ProgressInstallation.Value += 1;
             }
             LblStatus.Text = "Todos os softwares selecionados foram instalados com sucesso!";
+        }
+
+        private void ValidateCheckedDgv(DataGridView dataGridView)
+        {
+            bool IsAnythingActive = false;
+            foreach (DataGridViewRow row in dgvSoftwares.Rows)
+            {
+                if (row.Cells[0].Value.ToString() == "True")
+                {
+                    IsAnythingActive = true;
+                    break;
+                }
+            }
+
+            if (IsAnythingActive)
+            {
+                ButtonInstall.Enabled = true;
+            }
+            else 
+            {
+                ButtonInstall.Enabled = false;
+            }
         }
 
     }
