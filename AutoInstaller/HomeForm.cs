@@ -29,11 +29,9 @@ namespace AutoInstaller
             leftOrderButton.Size = new Size(7, 60);
             PanelMenu.Controls.Add(leftOrderButton);
 
-            //PopulateDataGridView();
             Reset();
         }
 
-        //Se precisar chamar alguma cor usando o espectro RGB
         public struct RGBColors 
         {
             public static Color ButtonSelected = Color.FromArgb(57, 40, 57);
@@ -100,10 +98,6 @@ namespace AutoInstaller
         private void Reset()
         {
             DisabelButton();
-            //leftOrderButton.Visible = false;
-            //TitlePanelPictureBox.IconChar = IconChar.Desktop;
-            //TitlePanelPictureBox.IconColor = Color.White;
-            //LblTitlePanel.Text = "Installation";
 
             ActivateButton(BtnInstallation, Color.White);
             OpenChildForm(new FormInstallation(_fileDownload, _fileOperations));
