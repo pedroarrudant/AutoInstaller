@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoInstaller", "AutoInstaller\AutoInstaller.csproj", "{1DD7FF2E-7543-4269-B676-F7AD354AF258}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AI.Application", "AIn.Application\AI.Application.csproj", "{7670BEEA-EF89-4A89-850B-37A3BE1C9DD5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AI.Application", "AI.Application\AI.Application.csproj", "{7670BEEA-EF89-4A89-850B-37A3BE1C9DD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AI.Domain", "AIn.Domain\AI.Domain.csproj", "{FC0E6C91-1C98-4FEA-B163-5C0768A65407}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AI.Domain", "AI.Domain\AI.Domain.csproj", "{FC0E6C91-1C98-4FEA-B163-5C0768A65407}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AI.Infrastructure", "Ain.Infrastructure\AI.Infrastructure.csproj", "{0ECD245F-E3DD-4DE4-9B92-E8603271E87F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AI.Infrastructure", "AI.Infrastructure\AI.Infrastructure.csproj", "{0ECD245F-E3DD-4DE4-9B92-E8603271E87F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

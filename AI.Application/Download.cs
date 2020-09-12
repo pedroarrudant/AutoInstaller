@@ -24,7 +24,7 @@ namespace AI.Application
 
             foreach (Software software in AvailableSoftwares)
             {
-                if (software.nome == SoftwareToDownload)
+                if (software.Name == SoftwareToDownload)
                 {
                     await _infrasctructureFileDownload.DownloadFileToMachineAsync(software, downloadpath);
                     return true;
@@ -44,7 +44,7 @@ namespace AI.Application
 
             foreach (Software software in AvailableSoftwares)
             {
-                Softwares.Add(software.nome);
+                Softwares.Add(software.Name);
             }
 
             return Softwares;
