@@ -1,29 +1,17 @@
 ﻿using AI.Application;
-using AI.Infrastructure;
 using AI.IoC;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AutoInstaller
 {
     public partial class FormInstallation : Form
     {
-        //private readonly IFileDownload _fileDownload;
-        //private readonly IFileOperations _fileOperations;
         private Download _appDownload;
         private Install _appInstall;
-        private IInfrastructureFactory _InfraFactory;
         public FormInstallation()
         {
             InitializeComponent();
-            _InfraFactory = new InfrastructureFactory();
 
             PopulateDataGridView();
         }

@@ -1,9 +1,6 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace AI.Domain
+namespace AI.Application.Domain
 {
     public class Software
     {

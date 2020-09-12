@@ -14,7 +14,6 @@ namespace AI.Application
         {
             _infrasctructureFileDownload = infrasctructureFileDownload;
             _infrasctructureFileOps = infrasctructureFileOps;
-
         }
 
         public async Task<bool> DownloadFileAsync(string SoftwareToDownload)
