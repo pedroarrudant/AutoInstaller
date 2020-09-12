@@ -160,13 +160,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AI.IoC\AI.IoC.csproj">
-      <Project>{9db30737-1022-469b-b18e-311cc6d9df9b}</Project>
-      <Name>AI.IoC</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AIn.Application\AI.Application.csproj">
+    <ProjectReference Include="..\AI.Application\AI.Application.csproj">
       <Project>{7670beea-ef89-4a89-850b-37a3be1c9dd5}</Project>
       <Name>AI.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AI.Infrastructure\AI.Infrastructure.csproj">
+      <Project>{0ecd245f-e3dd-4de4-9b92-e8603271e87f}</Project>
+      <Name>AI.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

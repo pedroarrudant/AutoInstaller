@@ -20,9 +20,9 @@ namespace AI.Application
 
             foreach (Software software in AvailableSoftwares)
             {
-                if (fileName == software.nome)
+                if (fileName == software.Name)
                 {
-                    await _infrasctructureFileOps.RunProcessAsync(software.nomearquivo, software.formasileciosa);
+                    await _infrasctructureFileOps.RunProcessAsync(software.FileName, software.Silent);
                 }
             }
         }
