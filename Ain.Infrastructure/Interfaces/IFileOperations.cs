@@ -6,7 +6,7 @@ namespace AI.Infrastructure
 {
     public interface IFileOperations
     {
-        Task RunProcessAsync(string fileName, string arguments);
+        Task<int> RunProcessAsync(string fileName, string arguments);
         List<Software> SerializeApps();
     }
 }

@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AI.Domain", "AIn.Domain\AI.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AI.Infrastructure", "Ain.Infrastructure\AI.Infrastructure.csproj", "{0ECD245F-E3DD-4DE4-9B92-E8603271E87F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoInstallerTests", "AutoInstallerTests\AutoInstallerTests.csproj", "{5C5B8544-E08E-4A52-9242-67F3D6FC0DA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AI.IoC", "AI.IoC\AI.IoC.csproj", "{9DB30737-1022-469B-B18E-311CC6D9DF9B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{0ECD245F-E3DD-4DE4-9B92-E8603271E87F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0ECD245F-E3DD-4DE4-9B92-E8603271E87F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0ECD245F-E3DD-4DE4-9B92-E8603271E87F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C5B8544-E08E-4A52-9242-67F3D6FC0DA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C5B8544-E08E-4A52-9242-67F3D6FC0DA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C5B8544-E08E-4A52-9242-67F3D6FC0DA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C5B8544-E08E-4A52-9242-67F3D6FC0DA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DB30737-1022-469B-B18E-311CC6D9DF9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DB30737-1022-469B-B18E-311CC6D9DF9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DB30737-1022-469B-B18E-311CC6D9DF9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DB30737-1022-469B-B18E-311CC6D9DF9B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

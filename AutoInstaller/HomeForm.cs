@@ -2,32 +2,31 @@
 using System.Drawing;
 using System.Windows.Forms;
 using AI.Application;
-using AI.Infrastructure;
 using FontAwesome.Sharp;
+using AI.IoC;
 
 namespace AutoInstaller
 {
     public partial class HomeForm : Form
     {
-        private readonly IFileDownload _fileDownload;
-        private readonly IFileOperations _fileOperations;
         private Download _appDownload;
         private Install _appInstall;
         private IconButton currentButton;
         private Panel leftOrderButton;
         private Form CurrentChildForm;
+        private IInfrastructureFactory _InfraFactory;
 
-        public HomeForm(IFileDownload FileDownload, IFileOperations FileOperations)
+
+
+        public HomeForm()
         {
             InitializeComponent();
-            _fileOperations = FileOperations;
-            _fileDownload = FileDownload;
-            _appDownload = new Download(_fileDownload, _fileOperations);
-            _appInstall = new Install(_fileOperations);
 
             leftOrderButton = new Panel();
             leftOrderButton.Size = new Size(7, 60);
             PanelMenu.Controls.Add(leftOrderButton);
+
+            _InfraFactory = new InfrastructureFactory();
 
             Reset();
         }
@@ -80,7 +79,7 @@ namespace AutoInstaller
         private void BtnInstallation_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.White);
-            OpenChildForm(new FormInstallation(_fileDownload, _fileOperations));
+            OpenChildForm(new FormInstallation());
         }
 
         private void BtnConfiguration_Click(object sender, EventArgs e)

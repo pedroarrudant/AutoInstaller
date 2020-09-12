@@ -1,5 +1,6 @@
 ﻿using AI.Application;
 using AI.Infrastructure;
+using AI.IoC;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,17 +15,15 @@ namespace AutoInstaller
 {
     public partial class FormInstallation : Form
     {
-        private readonly IFileDownload _fileDownload;
-        private readonly IFileOperations _fileOperations;
+        //private readonly IFileDownload _fileDownload;
+        //private readonly IFileOperations _fileOperations;
         private Download _appDownload;
         private Install _appInstall;
-        public FormInstallation(IFileDownload FileDownload, IFileOperations FileOperations)
+        private IInfrastructureFactory _InfraFactory;
+        public FormInstallation()
         {
             InitializeComponent();
-            _fileOperations = FileOperations;
-            _fileDownload = FileDownload;
-            _appDownload = new Download(_fileDownload, _fileOperations);
-            _appInstall = new Install(_fileOperations);
+            _InfraFactory = new InfrastructureFactory();
 
             PopulateDataGridView();
         }
