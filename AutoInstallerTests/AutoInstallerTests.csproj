@@ -69,7 +69,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AIn.Application\AI.Application.csproj">
+    <ProjectReference Include="..\AI.Application\AI.Application.csproj">
       <Project>{7670beea-ef89-4a89-850b-37a3be1c9dd5}</Project>
       <Name>AI.Application</Name>
     </ProjectReference>

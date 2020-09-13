@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using AI.Application;
 using FontAwesome.Sharp;
-using AI.IoC;
+using AI.Infrastructure.IoC;
 
 namespace AutoInstaller
 {

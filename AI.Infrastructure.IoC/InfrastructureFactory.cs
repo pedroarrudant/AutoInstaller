@@ -1,7 +1,7 @@
 ﻿using AI.Infrastructure;
 using System.Runtime.InteropServices.WindowsRuntime;
 
-namespace AI.IoC
+namespace AI.Infrastructure.IoC
 {
     public interface IInfrastructureFactory
     {

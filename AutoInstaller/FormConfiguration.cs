@@ -1,5 +1,5 @@
 ﻿using AI.Application;
-using AI.IoC;
+using AI.Infrastructure.IoC;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

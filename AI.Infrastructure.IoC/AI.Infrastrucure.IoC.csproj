@@ -7,8 +7,8 @@
     <ProjectGuid>{9DB30737-1022-469B-B18E-311CC6D9DF9B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AI.IoC</RootNamespace>
-    <AssemblyName>AI.IoC</AssemblyName>
+    <RootNamespace>AI.Infrastructure.IoC</RootNamespace>
+    <AssemblyName>AI.Infrastructure.IoC</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -45,7 +45,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ain.Infrastructure\AI.Infrastructure.csproj">
+    <ProjectReference Include="..\AI.Infrastructure\AI.Infrastructure.csproj">
       <Project>{0ecd245f-e3dd-4de4-9b92-e8603271e87f}</Project>
       <Name>AI.Infrastructure</Name>
     </ProjectReference>

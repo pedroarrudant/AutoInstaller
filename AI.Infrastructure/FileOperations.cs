@@ -18,9 +18,9 @@ namespace AI.Infrastructure
             var deserializedProduct = JsonConvert.DeserializeObject<List<Software>>(text);
 
             return deserializedProduct;
-        }
+        } 
 
-        public async Task RunProcessAsync(string fileName, string arguments)
+        public Task<int> RunProcessAsync(string fileName, string arguments)
         {
             var tcs = new TaskCompletionSource<int>();
 
@@ -37,6 +37,8 @@ namespace AI.Infrastructure
             };
 
             process.Start();
+
+            return tcs.Task;
         }
     }
 }

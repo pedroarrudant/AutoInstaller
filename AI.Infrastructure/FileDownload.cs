@@ -9,8 +9,8 @@ namespace AI.Infrastructure
     {
         public async Task DownloadFileToMachineAsync(Software software, string DownloadPath)
         {
-            Uri remoteUri = new Uri(software.caminhoweb);
-            string fileName = software.nomearquivo;
+            Uri remoteUri = new Uri(software.WebPath);
+            string fileName = software.FileName;
 
             using (WebClient myWebClient = new WebClient())
             {
