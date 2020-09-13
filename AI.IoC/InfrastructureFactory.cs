@@ -1,5 +1,4 @@
-﻿using AI.Application;
-using AI.Infrastructure;
+﻿using AI.Infrastructure;
 using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace AI.IoC

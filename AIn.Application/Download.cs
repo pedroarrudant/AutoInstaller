@@ -1,4 +1,5 @@
 ﻿using AI.Domain;
+using AI.IoC;
 using AI.Infrastructure;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -7,14 +8,15 @@ namespace AI.Application
 {
     public class Download : IDownload
     {
-        private readonly IFileDownload _infrasctructureFileDownload;
+        private readonly IInfrastructureFactory _infrasctructureFactory;
         private readonly IFileOperations _infrasctructureFileOps;
+        private readonly IFileDownload _infrasctructureFileDownload;
 
-        public Download(IFileDownload infrasctructureFileDownload, IFileOperations infrasctructureFileOps)
+        public Download(IInfrastructureFactory infrasctructureFactory)
         {
-            _infrasctructureFileDownload = infrasctructureFileDownload;
-            _infrasctructureFileOps = infrasctructureFileOps;
-
+            _infrasctructureFactory = infrasctructureFactory;
+            _infrasctructureFileOps = _infrasctructureFactory.GetFileOperationsAccess();
+            _infrasctructureFileDownload = _infrasctructureFactory.GetFileDownloadAccess();
         }
 
         public async Task<bool> DownloadFileAsync(string SoftwareToDownload)

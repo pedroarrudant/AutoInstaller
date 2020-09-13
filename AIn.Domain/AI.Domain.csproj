@@ -7,8 +7,8 @@
     <ProjectGuid>{FC0E6C91-1C98-4FEA-B163-5C0768A65407}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AIn.Domain</RootNamespace>
-    <AssemblyName>AIn.Domain</AssemblyName>
+    <RootNamespace>AI.Domain</RootNamespace>
+    <AssemblyName>AI.Domain</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

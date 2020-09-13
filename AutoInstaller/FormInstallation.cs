@@ -1,5 +1,4 @@
 ﻿using AI.Application;
-using AI.Infrastructure;
 using AI.IoC;
 using System;
 using System.Collections.Generic;
@@ -10,20 +9,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Unity;
 
 namespace AutoInstaller
 {
     public partial class FormInstallation : Form
     {
-        //private readonly IFileDownload _fileDownload;
-        //private readonly IFileOperations _fileOperations;
-        private Download _appDownload;
-        private Install _appInstall;
-        private IInfrastructureFactory _InfraFactory;
+        private IDownload _appDownload;
+        private IInstall _appInstall;
+
         public FormInstallation()
         {
             InitializeComponent();
-            _InfraFactory = new InfrastructureFactory();
+
+            IUnityContainer container = new UnityContainer();
+            container.RegisterType<IInfrastructureFactory, InfrastructureFactory>();
+
+            _appDownload = container.Resolve<Download>();
+            _appInstall = container.Resolve<Install>();
 
             PopulateDataGridView();
         }
@@ -91,9 +94,16 @@ namespace AutoInstaller
             {
                 if (row.Cells[0].Value.ToString() == "True")
                 {
-                    await _appDownload.DownloadFileAsync(row.Cells[1].Value.ToString());
+                    //await _appDownload.DownloadFileAsync(row.Cells[1].Value.ToString());
 
                     LblStatus.Text = "Instalando " + row.Cells[1].Value.ToString() + "...";
+
+                    IUnityContainer container = new UnityContainer();
+                    container.RegisterType<IInfrastructureFactory, InfrastructureFactory>();
+
+                    var logic = container.Resolve<Download>();
+
+                    await logic.DownloadFileAsync(row.Cells[1].Value.ToString());
 
                     await _appInstall.InstallSoftwareAsync(row.Cells[1].Value.ToString());
 
@@ -120,7 +130,7 @@ namespace AutoInstaller
             {
                 ButtonInstall.Enabled = true;
             }
-            else 
+            else
             {
                 ButtonInstall.Enabled = false;
             }

@@ -9,8 +9,6 @@ namespace AutoInstaller
 {
     public partial class HomeForm : Form
     {
-        private Download _appDownload;
-        private Install _appInstall;
         private IconButton currentButton;
         private Panel leftOrderButton;
         private Form CurrentChildForm;
@@ -99,7 +97,7 @@ namespace AutoInstaller
             DisabelButton();
 
             ActivateButton(BtnInstallation, Color.White);
-            OpenChildForm(new FormInstallation(_fileDownload, _fileOperations));
+            OpenChildForm(new FormInstallation());
         }
 
         private void OpenChildForm(Form ChildForm) 

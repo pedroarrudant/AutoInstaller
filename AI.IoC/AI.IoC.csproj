@@ -45,10 +45,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AIn.Application\AI.Application.csproj">
-      <Project>{7670beea-ef89-4a89-850b-37a3be1c9dd5}</Project>
-      <Name>AI.Application</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Ain.Infrastructure\AI.Infrastructure.csproj">
       <Project>{0ecd245f-e3dd-4de4-9b92-e8603271e87f}</Project>
       <Name>AI.Infrastructure</Name>

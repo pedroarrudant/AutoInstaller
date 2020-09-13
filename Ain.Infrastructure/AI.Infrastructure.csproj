@@ -7,8 +7,8 @@
     <ProjectGuid>{0ECD245F-E3DD-4DE4-9B92-E8603271E87F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ain.Infrastructure</RootNamespace>
-    <AssemblyName>Ain.Infrastructure</AssemblyName>
+    <RootNamespace>AI.Infrastructure</RootNamespace>
+    <AssemblyName>AI.Infrastructure</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

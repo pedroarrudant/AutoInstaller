@@ -1,5 +1,6 @@
 ﻿using AI.Domain;
 using AI.Infrastructure;
+using AI.IoC;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
@@ -7,12 +8,14 @@ namespace AI.Application
 {
     public class Install : IInstall
     {
+        private readonly IInfrastructureFactory _infrasctructureFactory;
         private readonly IFileOperations _infrasctructureFileOps;
-
-        public Install(IFileOperations infrasctructureFileOps)
+        private readonly IFileDownload _infrasctructureFileDownload;
+        public Install(IInfrastructureFactory infrasctructureFactory)
         {
-            _infrasctructureFileOps = infrasctructureFileOps;
-
+            _infrasctructureFactory = infrasctructureFactory;
+            _infrasctructureFileOps = _infrasctructureFactory.GetFileOperationsAccess();
+            _infrasctructureFileDownload = _infrasctructureFactory.GetFileDownloadAccess();
         }
         public async Task InstallSoftwareAsync(string fileName)
         {

@@ -7,8 +7,8 @@
     <ProjectGuid>{7670BEEA-EF89-4A89-850B-37A3BE1C9DD5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AIn.Application</RootNamespace>
-    <AssemblyName>AIn.Application</AssemblyName>
+    <RootNamespace>AI.Application</RootNamespace>
+    <AssemblyName>AI.Application</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -48,6 +48,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AI.IoC\AI.IoC.csproj">
+      <Project>{9db30737-1022-469b-b18e-311cc6d9df9b}</Project>
+      <Name>AI.IoC</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AIn.Domain\AI.Domain.csproj">
       <Project>{fc0e6c91-1c98-4fea-b163-5c0768a65407}</Project>
       <Name>AI.Domain</Name>
