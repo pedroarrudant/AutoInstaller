@@ -10,7 +10,7 @@ namespace AI.Infrastructure
     public class FileOperations : IFileOperations
     {
         private readonly string downloadpath = @"C:\Users\Pedro\Downloads\";
-        public List<Software> SerializeApps()
+        public IEnumerable<Software> SerializeApps()
         {
             string filepath = "./AppList.json";
             string text = File.ReadAllText(filepath);
